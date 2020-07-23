@@ -1,0 +1,30 @@
+#Name of the application
+spring:
+  application:
+    name: ZuulService
+
+#Eureka server url for registering
+#This is eureka client
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:9090/eureka/
+#register url to server    
+
+instance:
+  hostname: localhost
+  
+server:
+  port: 8989
+  
+zuul:
+  prefix: /reflectquizportal
+  routes:
+    reflectQuizService:
+      path: /quizManager/**
+      service-id: REFLECTQUIZSERVICE
+   
+     
+      
